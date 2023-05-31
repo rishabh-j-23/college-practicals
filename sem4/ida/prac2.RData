@@ -1,0 +1,9 @@
+data = read.table("D:\\codes\\college\\IDA\\prac.csv", header=TRUE)
+data
+dim(data)
+names(data)
+data = read.table("D:\\codes\\college\\IDA\\prac.csv", header=FALSE, skip=2)
+data
+read.table(file.choose())
+x = scan()
+x
