@@ -2,31 +2,18 @@
 #define MAXTRACE 20 // Expt. 9 Program for FIFO page replacement algorithm int
 int main()
 {
-    int reference_string[MAXTRACE], page_faults = 0, m, n, s, pages, frames, pf, k = 0;
-    printf("\nEnter Total Number of Pages :\t");
-    scanf("%d", &pages);
-    printf("\nEnter values of Reference String:\n");
-    for (m = 0; m < pages; m++)
-    {
-        printf("Value No. [%d]:\t", m + 1);
-        scanf("%d", &reference_string[m]);
-    }
-    printf("\nEnter Total Number of Frames:\t");
-    {
-        scanf("%d",
-              &frames);
-    }
+    int page_faults = 0, m, n, s, pages, frames, pf, k = 0;
+    pages = 10;
+    int reference_string[10] = {20, 10, 30, 50, 40, 70, 90, 34, 89, 93};
+    frames = 4;
     int temp[frames];
     for (m = 0; m < frames; m++)
     {
         temp[m] = -1;
     }
-    for (pf = 0; pf <
-                 frames;
-         pf++)
+    for (pf = 0; pf < frames; pf++)
         printf("PF#%-2d\t", pf + 1);
-    for (m = 0; m < pages; m++)
-    {
+    for (m = 0; m < pages; m++){
         s = 0;
         for (n = 0; n < frames;
              n++)

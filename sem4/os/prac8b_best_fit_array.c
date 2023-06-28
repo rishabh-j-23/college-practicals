@@ -3,26 +3,9 @@
 int main()
 {
 	// Declare Variables
-	int nb, blockSize[100], n, jobSize[100], i, j, alloc[100], avail[100], min;
-
-	// Input initial values
-	printf("Enter the number of available memory blocks: ");
-	scanf("%d", &nb);
-	printf("Enter the size of each memory block: \n");
-	for (i = 0; i < nb; i++)
-	{
-		printf("Size of block%d: ", i + 1);
-		scanf("%d", &blockSize[i]);
-	}
-
-	printf("Enter the number of processes: ");
-	scanf("%d", &n);
-	printf("Enter the size of each process: \n");
-	for (i = 0; i < n; i++)
-	{
-		printf("Size of process%d: ", i + 1);
-		scanf("%d", &jobSize[i]);
-	}
+	int i, j, alloc[100], avail[100], min;
+	int blockSize[4] = {100, 200, 150, 300}, nb = 4;
+	int jobSize[5] = {100, 90, 200, 50, 400}, n = 5;
 
 	//	Initialize alloc vector to -1 and avail to 99999
 	for (i = 0; i < n; i++)
