@@ -1,13 +1,11 @@
-// best fit
+
 #include <stdio.h>
 int main()
 {
-	// Declare Variables
 	int i, j, alloc[100], avail[100], min;
 	int blockSize[4] = {100, 200, 150, 300}, nb = 4;
 	int jobSize[5] = {100, 90, 200, 50, 400}, n = 5;
 
-	//	Initialize alloc vector to -1 and avail to 99999
 	for (i = 0; i < n; i++)
 	{
 		alloc[i] = -1;
@@ -17,7 +15,6 @@ int main()
 		avail[i] = 9999;
 	}
 
-	// Check for each process the blocks available
 	for (i = 0; i < n; i++)
 	{
 		for (j = 0; j < nb; j++)
@@ -41,14 +38,13 @@ int main()
 			alloc[i] = -1;
 		}
 		blockSize[min] = -1;
-		//	Initialize avail to 99999
+
 		for (j = 0; j < n; j++)
 		{
 			avail[j] = 9999;
 		}
 	}
 
-	// Print the results
 	printf("Process P of {size} is allocated to block \n");
 	for (i = 0; i < n; i++)
 	{
