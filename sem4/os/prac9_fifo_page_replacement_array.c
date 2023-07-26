@@ -13,10 +13,10 @@ int main()
     }
     for (pf = 0; pf < frames; pf++)
         printf("PF#%-2d\t", pf + 1);
-    for (m = 0; m < pages; m++){
+    for (m = 0; m < pages; m++)
+    {
         s = 0;
-        for (n = 0; n < frames;
-             n++)
+        for (n = 0; n < frames; n++)
         {
             if (reference_string[m] == temp[n])
             {
@@ -31,15 +31,12 @@ int main()
         }
         else if (s == 0)
         {
-            temp[(page_faults -
-                  1) %
-                 frames] = reference_string[m];
+            temp[(page_faults - 1) % frames] = reference_string[m];
         }
         printf("\n");
         for (n = 0; n < frames; n++)
         {
-            printf("%d\t",
-                   temp[n]);
+            printf("%d\t", temp[n]);
         }
     }
     printf("\nTotal Page Faults:\t%d\n", page_faults);

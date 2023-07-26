@@ -7,7 +7,7 @@
 
 int main()
 {
-    int pd[2]; 
+    int pd[2]; // two pipe descriptors:pd[0] for reading and pd[1] for writing
     char buffer[BUFSIZE + 1];
     int returnstatus;
     returnstatus = pipe(pd);
@@ -22,14 +22,14 @@ int main()
     fork_result = fork();
 
     if (fork_result == 0)
-    { 
+    { // child process receives data from parent
         read(pd[READ_END], buffer, BUFSIZE);
         printf("\nChild Received: %s from the parent.\n", buffer);
         close(pd[READ_END]);
     }
 
     else
-    { 
+    { // parent process pass string to child
         char some_data[10];
         printf("\nEnter some data to be passed to child process:");
         gets(some_data);

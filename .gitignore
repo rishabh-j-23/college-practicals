@@ -1,3 +1,5 @@
 *.exe
 .docx
 .zip
+test.*
+a.out

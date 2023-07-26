@@ -31,7 +31,7 @@ void firstFit(int blockSize[], int m, int processSize[], int n)
 	for (int i = 0; i < n; i++)
 	{
 		printf(" %i\t\t\t", i+1);
-		printf("%i\t\t\t\t", processSize[i]);
+		printf("%i\t", processSize[i]);
 		if (allocation[i] != -1)
 			printf("%i", allocation[i] + 1);
 		else
