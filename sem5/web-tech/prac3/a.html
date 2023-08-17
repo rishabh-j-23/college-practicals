@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Practical 3</title>
+    <style>
+      .reg-form {
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background-color: gray;
+      }
+      form {
+        border: 2px solid black;
+        background-color: lightgrey;
+        border-radius: 10px;
+      }
+      label {
+        padding-right: 90px;
+      }
+      .btn {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+      }
+      .btn input {
+        margin: 10px;
+      }
+      .gender {
+        padding-right: 0;
+        padding: 4px;
+      }
+      #gender {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+      }
+      tr,
+      td {
+        padding: 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="reg-form">
+      <div >
+        <form>
+          <h2><center>Registration form</center></h2>
+          <table>
+            <tr>
+              <td><label for="fname">First Name </label></td>
+              <td><input type="text" id="fname" placeholder="First Name" /></td>
+            </tr>
+            <tr>
+              <td><label for="lname">Last Name </label></td>
+              <td><input type="text" id="lname" placeholder="Last Name" /></td>
+            </tr>
+            <tr>
+              <td><label for="password">Password </label></td>
+              <td>
+                <input type="password" id="password" placeholder="*****" />
+              </td>
+            </tr>
+            <tr>
+              <td><label for="dob">Date of Birth </label></td>
+              <td><input type="date" id="dob" /></td>
+            </tr>
+            <tr>
+              <td><label for="email">Email ID </label></td>
+              <td>
+                <input type="text" id="email" />
+              </td>
+            </tr>
+            <tr>
+              <td><label for="mobile-no">Mobile No. </label></td>
+              <td><input type="text" id="mobile-no" /></td>
+            </tr>
+            <tr>
+              <td><label for="gender">Gender </label></td>
+              <td>
+                <div id="gender">
+                  <label for="radio-male" class="gender">Male</label>
+                  <input type="radio" id="radio-male" name="gender" />
+                  <label for="radio-female" class="gender">Female</label>
+                  <input type="radio" id="radio-female" name="gender" />
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td><label for="address">Address</label></td>
+              <td>
+                <textarea
+                  name="address"
+                  id="address"
+                  cols="30"
+                  rows="5"
+                ></textarea>
+              </td>
+            </tr>
+            <tr>
+              <td colspan="2" style="width: 100%;">
+                <div class="btn">
+                    <input type="submit" value="Submit" />
+                    <input type="reset" value="Reset" />
+                </div>
+              </td>
+            </tr>
+          </table>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>
