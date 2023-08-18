@@ -1,17 +1,21 @@
+-- Active: 1691209649688@@127.0.0.1@3306@prac1b
 CREATE TABLE DEPOSIT (
     ACTNO VARCHAR(5),
     CNAME VARCHAR(18),
     BNAME VARCHAR(18),
     ADATE DATE
 );
+select * from deposit;
 
 CREATE TABLE BRANCH (
     BNAME VARCHAR(18)
 );
+select * from branch;
 
 CREATE TABLE CUSTOMER (
     CNAME VARCHAR(19)
 );
+select * from customer;
 
 CREATE TABLE BORROW (
     LOANNO CHAR(5),
@@ -19,23 +23,31 @@ CREATE TABLE BORROW (
     BNAME VARCHAR(18),
     AMOUNT DECIMAL(8,2)
 );
+select * from borrow;
+
 
 ALTER TABLE DEPOSIT
     ADD COLUMN AMOUNT DECIMAL(8,2);
+select * from deposit;
 
 ALTER TABLE BRANCH 
     ADD COLUMN CITY VARCHAR(18);
+select * from branch;
 
 ALTER TABLE BORROW 
     MODIFY COLUMN LOANNO VARCHAR(5);
+select * from borrow;
 
 ALTER TABLE DEPOSIT 
     DROP COLUMN ACTNO;
+select * from deposit;
 
 DROP TABLE BORROW;
 
 ALTER TABLE DEPOSIT 
     RENAME SAVING;
+select * from saving;
 
 ALTER TABLE CUSTOMER 
     RENAME EMP;
+select * from EMP;
