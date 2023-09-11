@@ -8,7 +8,6 @@ double run_time(clock_t start, clock_t end)
 {
 
     double ms = (double)(end - start);
-    printf("%d %d\n", end, start);
     ms = ms / (double)CLK_TCK;
 
     return ms;
@@ -79,13 +78,12 @@ void main()
     double profitToWeight[4] = {1.6, 0.66, 0.875, 1.11};
 
     clock_t start, end;
-    
+
     start = clock();
     double p = fractional_knapsack(profit, weight, profitToWeight);
     end = clock();
     ms = run_time(start, end);
 
     printf("\nMax profit : %.3f \n", p);
-    printf("start time : %d \nend time : %d", start, end);
     printf("\ntime : %f", ms);
 }
