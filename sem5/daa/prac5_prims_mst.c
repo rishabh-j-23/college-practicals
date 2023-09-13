@@ -5,9 +5,19 @@
 #include <limits.h>
 #include <stdbool.h>
 #include <stdio.h>
+#include <time.h>
 
 // Number of vertices in the graph
 #define V 6
+
+double run_time(clock_t start, clock_t end)
+{
+
+    double ms = (double)(end - start);
+    ms = ms / (double)CLK_TCK;
+
+    return ms;
+}
 
 // A utility function to find the vertex with
 // minimum key value, from the set of vertices
@@ -93,9 +103,13 @@ void primMST(int graph[V][V])
 int main()
 {
     int graph[V][V] = { {0,3,1,6,0,0}, {3,0,5,0,3,0},{1,5,0,5,6,4},{6,0,5,0,0,2},{0,3,6,0,0,6},{0,0,4,2,6,0} };
-
+    clock_t start, end;
     // Print the solution
+    start = clock();
     primMST(graph);
+    end = clock();
+    double ms = run_time(start, end);
+    printf("\ntime : %f", ms);
 
     return 0;
 }

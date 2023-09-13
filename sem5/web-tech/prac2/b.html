@@ -1,55 +1,34 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>prac 2b</title>
-</head>
-<body>
-    <table border="2">
-        <tr>
-            <th rowspan="3">DAY</th>
-            <th colspan="3">SEMINAR</th>
-        </tr>
-        <tr>
-            <th colspan="2">SCHEDULE</th>
-            <th ROWSPAN="2">TOPIC</th>
-        </tr>
-        <tr>
-            <th>BEGIN</th>
-            <th>END</th>
-        </tr>
-        <tr>
-            <td rowspan="2">Monday</td>
-            <td rowspan="2" bgcolor="yellow">8 am</td>
-            <td rowspan="2" bgcolor="blue">5 pm</td>
-            <td>introduction to xml</td>
-        </tr>
-        <tr>
-            <td>validity DTD</td>
-        </tr>
-        <tr>
-            <td rowspan="3">tuesday</td>
-            <td bgcolor="yellow">8:00 am</td>
-            <td bgcolor="yellow">11:00 pm</td>
-            <td>x path</td>
-        </tr>
-        <tr>
-            <td bgcolor="yellow">8:00 am</td>
-            <td bgcolor="pink">2:00 pm</td>
-            <td  rowspan="2">xsl tansformations</td>
-        </tr>
-        <tr>
-            
-            <TD bgcolor="blue">5:00am</TD>
-            <TD bgcolor="blue">2:00pm</TD>
-        </tr>
-        <tr>
-            <td>wednesday</td>
-            <td bgcolor="pink">12:00am</td>
-            <td bgcolor="pink">6:00pm</td><td>xsl formatting object</td>
-        </tr>
-        </table>
-    </table>
-</body>
+<html>
+  <head>
+    <title>home page having three links</title>
+    <style>
+      ul {
+        list-style-type: none;
+      }
+      li {
+        float: left;
+        padding: 10px;
+        margin: 5px;
+        background-color: #ef860a;
+      }
+      a {
+        text-decoration: none;
+      }
+    </style>
+  </head>
+  <body>
+    <ul>
+      <li><a href="aboutus.html" target="my_firs_iframe">About US</a></li>
+      <li><a href="service.html" target="my_firs_iframe">Departments</a></li>
+      <li><a href="contactus.html" target="my_firs_iframe">Contact Us</a></li>
+    </ul>
+
+    <br /><br /><br /><br />
+    <iframe
+      name="my_firs_iframe"
+      src=""
+      style="width: 500px; height: 500px"
+    ></iframe>
+  </body>
 </html>

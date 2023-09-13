@@ -7,40 +7,43 @@
     <style>
       .internal span {
         font-family: "Times New Roman", Times, serif;
-        font-size: 50px;
+        font-size: 2em;
         color: red;
-        background-color: gray;
       }
     </style>
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <div class="inline">
+    <div class="inline" style="background-color: gray">
       <span
-        style="font-family: 'Times New Roman', Times, serif; font-size: 50px"
+        style="font-family: 'Times New Roman', Times, serif; font-size: 2em"
       >
         Inline css
       </span>
+      <div style="font-size: 1em">
+        &lt;span style="font-family: 'Times New Roman', Times, serif; font-size:
+        50px" &gt; Inline css &lt;/span&gt;
+      </div>
     </div>
-    <div class="internal">
+    <br />
+    <div class="internal" style="background-color: gray">
       <span>Internal css</span>
+      <div>
+        in head tag &lt;style&gt; .internal span{ font-family: "Times New
+        Roman", Times, serif; font-size: 2em; color: red; } &lt;/style&gt;
+      </div>
     </div>
+    <br>
     <div class="external">
       <span>external css</span>
+      <div>
+        styles written in style.css file 
+        <br>
+        .external
+        { font-size: 2em; color: aquamarine; } <br>
+        .external span { font-family:
+        'Times New Roman', Times, serif; font-size: 2em; }
+      </div>
     </div>
-
-    <div class="test">
-      <p class="external">cse</p>
-      <p class="external">ycce</p>
-      <p class="external">3rd year</p>
-    </div>
-
-    <!-- footer
-    margin
-    word spacing
-    letter spacing
-    underline
-     -->
-     
   </body>
 </html>

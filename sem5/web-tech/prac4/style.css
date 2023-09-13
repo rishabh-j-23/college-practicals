@@ -1,9 +1,9 @@
 
 .external {
-    font-size: 30px;
-    color: aquamarine;
+    font-size: 1em;
+    background-color: gray;
 }
 .external span {
     font-family: 'Times New Roman', Times, serif;
-    font-size: 50px;
+    font-size: 2em;
 }
