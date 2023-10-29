@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <time.h>
 static int m = 5, n = 5;
 static int c = 0;
 static int count = 0;
@@ -14,6 +15,12 @@ int x[50];
 
 void nextValue(int k);
 void GraphColoring(int k);
+
+double run_time(clock_t start, clock_t end){
+    double ms = (double)(end - start);
+    ms = ms / (double)CLK_TCK;
+    return ms;
+}
 
 void main()
 {
@@ -50,8 +57,10 @@ void main()
     //     }
     // }
 
-    printf("\nPossible Solutions are\n ");
+    clock_t start, end;
 
+    printf("\nPossible Solutions are\n ");
+    start = clock();
     for (m = 1;m <= n;m++)
     {
         if (c == 1)
@@ -60,9 +69,11 @@ void main()
         }
         GraphColoring(1);
     }
+    end = clock();
 
     printf("\nThe chromatic number is % d ", m - 1);
     printf("\nThe total number of solutions is % d ", count);
+    printf("\ntime: %f", run_time(start, end));
 
 }
 void GraphColoring(int k)

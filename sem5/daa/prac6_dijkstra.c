@@ -64,7 +64,13 @@ int main() {
         {0, 0, 4, 14, 10, 0}
     };
 
+    clock_t start, end;
+
+    start = clock();
     dijkstra(graph, 0);
+    end = clock();
+
+    printf("\ntime: %f", run_time(start, end));
 
     return 0;
 }

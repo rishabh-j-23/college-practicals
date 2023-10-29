@@ -1,11 +1,26 @@
 #include <stdio.h>
 #include <math.h>
+#include <time.h>
+
 void queen(int row, int p);
 int chess[8], count;
+
+double run_time(clock_t start, clock_t end){
+    double ms = (double)(end - start);
+    ms = ms / (double)CLK_TCK;
+    return ms;
+}
+
 int main()
 {
     int p = 8;
+    clock_t start, end;
+
+    start = clock();
     queen(1, p);
+    end = clock();
+
+    printf("\ntime : %f", run_time(start, end));
     return 0;
 }
 
