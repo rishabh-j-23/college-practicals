@@ -1,3 +1,4 @@
 {
-    "liveServer.settings.port": 5582
+    "liveServer.settings.port": 5582,
+    "java.debug.settings.onBuildFailureProceed": true
 }

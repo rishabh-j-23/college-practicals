@@ -1,4 +1,4 @@
--- Active: 1691209649688@@127.0.0.1@3306
+-- Active: 1691209649688@@127.0.0.1@3306@prac8
 CREATE TABLE Customers (
     ID INT PRIMARY KEY,
     C_NAME VARCHAR(255),
@@ -21,9 +21,12 @@ CREATE VIEW CustomerNameAndAge AS
 SELECT C_Name AS CustomerName, AGE
 FROM CUSTOMERS;
 
+SELECT * FROM CustomerNameAndAge;
 UPDATE CustomerNameAndAge
 SET AGE = 25
 WHERE CustomerName= 'KOMAL';
+
+SELECT * FROM CustomerNameAndAge;
 
 DROP VIEW customernameandage;
 
