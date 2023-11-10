@@ -9,7 +9,7 @@ public class Main {
     public static void main(String[] args) {
 
         String user = "root";
-        String password = "root";
+        String password = "rishabh";
         try {
             Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/prac8", user, password);
             Statement statement = connection.createStatement();
