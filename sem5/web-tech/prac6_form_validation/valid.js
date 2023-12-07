@@ -3,11 +3,11 @@ function fun() {
     var pwdv = document.forms[0].pwd.value;
     var emailv = document.forms[0].email.value;
     var phv = document.forms[0].ph.value;
+
     var userreg = new RegExp("^[a-zA-Z][a-zA-Z0-9]*$");
-
     var emailreg = new RegExp("^[a-zA-Z][a-zA-Z0-9_.]*@[a-zA-Z][a-zA-Z0-9_.]*.[a-zA-Z][a-zA-Z0-9_.]{2}.[a-zA-Z][a-zA-Z0-9_.]{2}$|^[a-zA-Z][a-zA-Z0-9_.]*@[a-zA-Z][a-zA-Z0-9_.]*.[a-zA-Z][a-zA-Z0-9_.]{3}$");
-
     var phreg = new RegExp("^[0-9]{10}$");
+    
     var ruser = userreg.exec(userv);
     var remail = emailreg.exec(emailv);
     var rph = phreg.exec(phv);
