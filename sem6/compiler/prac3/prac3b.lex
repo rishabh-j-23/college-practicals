@@ -1,8 +1,8 @@
  
 %{ 
     /* Definition section*/
-    #include "y.tab.h" 
-    extern yylval;
+    #include "prac3b.tab.h" 
+    extern int yylval;
 %}
  
 %% 

@@ -5,7 +5,10 @@ test.*
 a.out
 */*/test.c
 .vscode
+*.pdf
 
 //compiler
 lex.yy.c
 a.exe
+*.tab.c
+*.tab.h
