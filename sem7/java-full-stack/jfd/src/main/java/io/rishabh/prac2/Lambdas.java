@@ -1,4 +1,4 @@
-package io.rishabh.prac3;
+package io.rishabh.prac2;
 
 interface Sum {
     void sum(int a, int b);

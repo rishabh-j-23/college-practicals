@@ -1,7 +1,9 @@
+package io.rishabh.prac1;
+
 import java.util.HashSet;
 import java.util.Iterator;
 
-public class HashSetExample {
+public class HashsetExample {
     public static void main(String[] args) {
         HashSet<Integer> set = new HashSet<>();
 

@@ -1,7 +1,9 @@
+package io.rishabh.prac1;
+
 import java.util.Iterator;
 import java.util.TreeSet;
 
-public class TreeSetExample {
+public class TreesetExample {
     public static void main(String[] args) {
         TreeSet<Integer> treeSet = new TreeSet<>();
 
