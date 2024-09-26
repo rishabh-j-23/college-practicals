@@ -51,4 +51,7 @@ public class Employee {
         return "Employee [empId=" + empId + ", firstName=" + firstName + ", lastName=" + lastName + ", email=" + email
                 + ", gender=" + gender + ", newJoiner=" + newJoiner + ", salary=" + salary + ", rating=" + rating + "]";
     }
+    public String getNewJoining() {
+        return this.newJoiner;
+    }
 }
