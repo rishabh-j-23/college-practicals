@@ -17,7 +17,7 @@ public class PriorityDequeExample {
         System.err.println("element at top" + pq.peek());
         System.out.println("size of pq " + pq.size());
         System.out.println("after operations");
-        Iterator it = pq.iterator();
+        Iterator<Integer> it = pq.iterator();
         while (it.hasNext()) {
             System.out.print(it.next() + " ");
         }

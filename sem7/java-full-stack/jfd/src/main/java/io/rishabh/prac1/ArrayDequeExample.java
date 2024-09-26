@@ -18,7 +18,7 @@ public class ArrayDequeExample {
         System.err.println("element at top" + q.peek());
         System.out.println("size of q " + q.size());
         System.out.println("after operations");
-        Iterator it = q.iterator();
+        Iterator<Integer> it = q.iterator();
         while (it.hasNext()) {
             System.out.println(it.next());
         }

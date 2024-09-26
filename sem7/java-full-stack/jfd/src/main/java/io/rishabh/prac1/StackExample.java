@@ -15,7 +15,7 @@ public class StackExample {
         stk.forEach(System.out::println);
         stk.pop();
         System.err.println("element at top " + stk.peek());
-        Iterator it = stk.iterator();
+        Iterator<Integer> it = stk.iterator();
 
         while (it.hasNext()) {
             System.out.println(it.next());
