@@ -81,9 +81,9 @@ start_state = [
 ]
 
 goal_state = [
-    [3, 2, 1],
+    [1, 2, 3],
     [8, 0, 4],
-    [7, 5, 6]
+    [7, 6, 5]
 ]
 
 a_star_search(start_state, goal_state)
