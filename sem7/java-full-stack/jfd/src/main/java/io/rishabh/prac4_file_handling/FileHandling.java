@@ -9,6 +9,7 @@ import java.io.IOException;
 
 public class FileHandling {
     public static void main(String[] args) throws IOException {
+        fileReadWrite();
         bufferReadWrite();
     }
 
@@ -18,7 +19,7 @@ public class FileHandling {
             f.createNewFile();
 
         FileWriter fw = new FileWriter(f);
-        fw.write("written using file writer");
+        fw.write("written using file writer\n");
         fw.close();
 
         FileReader fr = new FileReader(f);

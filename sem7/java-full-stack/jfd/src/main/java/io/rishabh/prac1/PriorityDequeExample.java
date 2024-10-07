@@ -1,3 +1,5 @@
+package io.rishabh.prac1;
+
 import java.util.PriorityQueue;
 import java.util.Comparator;
 import java.util.Iterator;
@@ -15,7 +17,7 @@ public class PriorityDequeExample {
         System.err.println("element at top" + pq.peek());
         System.out.println("size of pq " + pq.size());
         System.out.println("after operations");
-        Iterator it = pq.iterator();
+        Iterator<Integer> it = pq.iterator();
         while (it.hasNext()) {
             System.out.print(it.next() + " ");
         }

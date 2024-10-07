@@ -12,3 +12,8 @@ lex.yy.c
 a.exe
 *.tab.c
 *.tab.h
+
+//jfsd
+sem7/**/*/target
+sem7/**/*/docs
+sem7/**/*/practice

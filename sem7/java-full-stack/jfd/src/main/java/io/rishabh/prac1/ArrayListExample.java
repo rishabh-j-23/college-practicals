@@ -1,3 +1,5 @@
+package io.rishabh.prac1;
+
 import java.util.ArrayList;
 import java.util.Iterator;
 

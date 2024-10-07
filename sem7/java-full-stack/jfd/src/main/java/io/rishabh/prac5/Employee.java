@@ -1,3 +1,5 @@
+package io.rishabh.prac5;
+
 public class Employee {
     
     private String empId;
@@ -48,5 +50,8 @@ public class Employee {
     public String toString() {
         return "Employee [empId=" + empId + ", firstName=" + firstName + ", lastName=" + lastName + ", email=" + email
                 + ", gender=" + gender + ", newJoiner=" + newJoiner + ", salary=" + salary + ", rating=" + rating + "]";
+    }
+    public String getNewJoining() {
+        return this.newJoiner;
     }
 }
