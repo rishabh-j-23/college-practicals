@@ -17,3 +17,7 @@ a.exe
 sem7/**/*/target
 sem7/**/*/docs
 sem7/**/*/practice
+node_modules
+
+.env
+
