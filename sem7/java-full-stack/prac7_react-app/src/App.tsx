@@ -1,16 +1,83 @@
-import React, { useState, ChangeEvent } from 'react';
-import axios from 'axios';
+import React, { useState, ChangeEvent } from "react";
+import axios from "axios";
 
 export default function App() {
-  const [inputText, setInputText] = useState('');
-  const [tempMetric, setTempMetric] = useState(null);
-  const [tempImperial, setTempImperial] = useState(null);
-  const [weatherText, setWeatherText] = useState('');
-  const [isDayTime, setIsDayTime] = useState(true);
-  const [observationTime, setObservationTime] = useState('');
-  const [hasPrecipitation, setHasPrecipitation] = useState(false);
-  const [precipitationType, setPrecipitationType] = useState(null);
-  const [weatherIcon, setWeatherIcon] = useState(null);
+  const [inputText, setInputText] = useState("");
+  const [weatherData, setWeatherData] = useState<any>(null);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
+
+  // State for search functionality
+  const [searchText, setSearchText] = useState("");
+  const [indianLocations] = useState([
+    "Mumbai",
+    "Delhi",
+    "Bengaluru",
+    "Chennai",
+    "Hyderabad",
+    "Kolkata",
+    "Ahmedabad",
+    "Pune",
+    "Jaipur",
+    "Lucknow",
+    "Surat",
+    "Kanpur",
+    "Nagpur",
+    "Patna",
+    "Indore",
+    "Bhopal",
+    "Vadodara",
+    "Chandigarh",
+    "Ranchi",
+    "Guwahati",
+    "Kochi",
+    "Thiruvananthapuram",
+    "Coimbatore",
+    "Visakhapatnam",
+    "Agra",
+    "Varanasi",
+    "Madurai",
+    "Jodhpur",
+    "Nashik",
+    "Amritsar",
+    "Raipur",
+    "Dehradun",
+    "Aurangabad",
+    "Mysuru",
+    "Jabalpur",
+    "Vijayawada",
+    "Udaipur",
+    "Kozhikode",
+    "Mangalore",
+    "Rajkot",
+    "Allahabad",
+    "Gwalior",
+    "Salem",
+    "Srinagar",
+    "Tiruchirappalli",
+    "Noida",
+    "Faridabad",
+    "Ghaziabad",
+    "Howrah",
+    "Durgapur",
+    "Bhubaneswar",
+    "Dharamshala",
+    "Shimla",
+    "Haridwar",
+    "Pondicherry",
+    "Gandhinagar",
+  ]);
+
+  // Filter locations based on searchText
+  const filteredLocations = indianLocations.filter((location) =>
+    location.toLowerCase().includes(searchText.toLowerCase()),
+  );
+
+  // Handle location click (fetch weather details)
+  const handleLocationClick = (location: string) => {
+    setInputText(location);
+    getLocationKey(location); // Fetch weather details for the clicked location
+  };
 
   const API_KEY = import.meta.env.VITE_API_KEY as string;
 
@@ -18,90 +85,132 @@ export default function App() {
 
   async function getLocationKey(location: string) {
     try {
+      setLoading(true);
+      setError(""); // Clear previous error if any
       const url = `${locationKeyUrl}${location}`;
       const res = await axios.get(url);
+
+      if (res.data.length === 0) {
+        throw new Error("Location not found");
+      }
+
       const loc = res.data[0].Key;
-      console.log(loc);
       const weatherUrl = `http://dataservice.accuweather.com/currentconditions/v1/${loc}?apikey=${API_KEY}`;
       const weatherRes = await axios.get(weatherUrl);
-      const weatherData = weatherRes.data[0];
-
-      setTempMetric(weatherData['Temperature']['Metric']['Value']);
-      setTempImperial(weatherData['Temperature']['Imperial']['Value']);
-      setWeatherText(weatherData['WeatherText']);
-      setIsDayTime(weatherData['IsDayTime']);
-      setObservationTime(weatherData['LocalObservationDateTime']);
-      setHasPrecipitation(weatherData['HasPrecipitation']);
-      setPrecipitationType(weatherData['PrecipitationType']);
-      setWeatherIcon(weatherData['WeatherIcon']);
-    } catch (error) {
-      console.error('Error fetching weather data:', error);
+      setWeatherData(weatherRes.data[0]);
+    } catch (error: any) {
+      setError(error.message || "Error fetching weather data");
+    } finally {
+      setLoading(false);
     }
   }
 
   const handleSearch = () => {
-    if (inputText) {
+    if (inputText.trim()) {
       getLocationKey(inputText);
     }
   };
 
   return (
-    <div className='flex w-screen justify-center items-center'>
-      <div className='flex-col justify-center items-center'>
-        {/* Search bar */}
-        <div className='flex justify-center items-center px-4 py-4'>
+    <div className="flex w-screen min-h-screen">
+      {/* Sidebar */}
+      <div className="w-1/4 p-4 h-screen">
+        <h2 className="text-lg font-bold mb-4">Popular Indian Locations</h2>
+
+        {/* Search Bar */}
+        <input
+          type="text"
+          placeholder="Search Indian location"
+          className="w-full mb-4 p-2 border border-gray-300 rounded-lg"
+          value={searchText}
+          onChange={(e: ChangeEvent<HTMLInputElement>) =>
+            setSearchText(e.target.value)
+          }
+        />
+
+        {/* Scrollable Location List */}
+        <div className="max-h-80 overflow-y-auto border border-gray-200 rounded-lg h-screen">
+          <ul className="space-y-2">
+            {filteredLocations.map((location, index) => (
+              <li
+                key={index}
+                className="cursor-pointer p-2 hover:bg-sky-300 rounded-lg text-center"
+                onClick={() => handleLocationClick(location)}
+              >
+                {location}
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+
+      {/* Main Content */}
+      <div className="flex flex-col p-6">
+        <p className="p-1 font-bold">Location Data</p>
+        {/* Search Bar */}
+        <div className="flex justify-center items-center mb-4">
           <input
-            placeholder='Search Location'
-            className='flex rounded-lg border-gray-100 bg-gray-100 px-4 py-1 mx-2 text-black'
+            placeholder="Search Location"
+            className="flex rounded-lg border-gray-300 px-4 py-2 text-black mr-2 bg-gray-100"
             value={inputText}
-            onChange={(e: ChangeEvent<HTMLInputElement>) => setInputText(e.target.value)}
+            onChange={(e: ChangeEvent<HTMLInputElement>) =>
+              setInputText(e.target.value)
+            }
           />
           <button
-            className='bg-sky-500 rounded-lg px-2 py-1'
+            className="bg-sky-500 text-white rounded-lg px-4 py-2 hover:bg-sky-600 transition-colors"
             onClick={handleSearch}
           >
             Search
           </button>
         </div>
 
-        {/* Weather Icon */}
-        <div className='flex'>
-          {weatherIcon && (
-            <img
-              src={`https://developer.accuweather.com/sites/default/files/${weatherIcon < 10 ? `0${weatherIcon}` : weatherIcon}-s.png`}
-              alt='Weather Icon'
-              className='flex justify-center items-center w-60 rounded-full ml-14'
-            />
-          )}
-        </div>
+        {/* Loading or Error Messages */}
+        {loading && <p className="text-blue-600">Loading...</p>}
+        {error && <p className="text-red-500">{error}</p>}
 
-        {/* Display */}
-        <div className='flex-row border-slate-400 border-solid rounded-lg justify-center items-center px-3 py-2 ml-14'>
-          <div>
-            <span className='font-extrabold'>Temperature (Metric): </span>
-            <span>{tempMetric ? `${tempMetric}°C` : 'N/A'}</span>
+        {/* Weather Data */}
+        {weatherData && (
+          <div className="rounded-lg shadow-lg p-6 w-80">
+            <div className="flex justify-center mb-4">
+              <img
+                src={`https://developer.accuweather.com/sites/default/files/${weatherData.WeatherIcon < 10 ? `0${weatherData.WeatherIcon}` : weatherData.WeatherIcon}-s.png`}
+                alt="Weather Icon"
+                className="w-fit h-fit"
+              />
+            </div>
+            <div className="grid gap-4">
+              <div>
+                <span className="font-semibold">Temperature (Metric):</span>{" "}
+                {weatherData.Temperature.Metric.Value}°C
+              </div>
+              <div>
+                <span className="font-semibold">Temperature (Imperial):</span>{" "}
+                {weatherData.Temperature.Imperial.Value}°F
+              </div>
+              <div>
+                <span className="font-semibold">Weather:</span>{" "}
+                {weatherData.WeatherText}
+              </div>
+              <div>
+                <span className="font-semibold">Daytime:</span>{" "}
+                {weatherData.IsDayTime ? "Yes" : "No"}
+              </div>
+              <div>
+                <span className="font-semibold">Precipitation:</span>{" "}
+                {weatherData.HasPrecipitation
+                  ? weatherData.PrecipitationType || "Yes"
+                  : "No"}
+              </div>
+              <div>
+                <span className="font-semibold">Last Updated:</span>{" "}
+                {new Date(
+                  weatherData.LocalObservationDateTime,
+                ).toLocaleString()}
+              </div>
+            </div>
           </div>
-          <div>
-            <span className='font-extrabold'>Temperature (Imperial): </span>
-            <span>{tempImperial ? `${tempImperial}°F` : 'N/A'}</span>
-          </div>
-          <div>
-            <span className='font-extrabold'>Weather: </span>
-            <span>{weatherText || 'N/A'}</span>
-          </div>
-          <div>
-            <span className='font-extrabold'>Daytime: </span>
-            <span>{isDayTime ? 'Yes' : 'No'}</span>
-          </div>
-          <div>
-            <span className='font-extrabold'>Precipitation: </span>
-            <span>{hasPrecipitation ? precipitationType || 'Yes' : 'No'}</span>
-          </div>
-          <div>
-            <span className='font-extrabold'>Last Updated: </span>
-            <span>{observationTime || 'N/A'}</span>
-          </div>
-        </div>
+        )}
       </div>
     </div>
   );

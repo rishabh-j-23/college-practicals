@@ -1,0 +1,378 @@
+@import url('https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Crimson+Text&family=Oswald:wght@300&family=Updock&display=swap');
+
+:root {
+    --crimon-font: 'Crimson Text', serif;
+    --oswald-font: 'Oswald', sans-serif;
+    --updock-font: 'Updock', cursive;
+
+    --white : #F2F2F2; 
+    --grey : #737373; 
+    --dark-grey : #404040; 
+    --grey-black : #262626; 
+    --light-black : #2d2b2b; 
+    --blue: #4273d6;
+}
+
+body {
+    padding: 0;
+    margin: 0;
+    font-size: 1em;
+    color: var(--white);
+    font-style: var(--crimon-font);
+    background-color: var(--light-black);
+    font-family: 'Crimson Text', 'Pixelify Sans', sans-serif;
+
+}
+  
+.base-container {
+    height: 100vh;
+}
+
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.mobile-header {
+    display: none;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    align-items: center;
+    width: 100%;
+    margin-right: 20%;
+}
+
+.logo {
+    font-size: 2em;
+    font-style: var(--oswald-font);
+    cursor: pointer;
+    position: static;
+    margin-left: 20%;
+}
+
+.navigation {
+    padding: 4px;
+}
+
+.navigation a{
+    text-decoration: none;
+    color: inherit;
+    padding: 8px;
+}
+
+.navigation a:hover {
+    cursor: pointer;
+    color: var(--white);
+    background-color: var(--grey);
+    border-radius: 80px;
+    font-size: 1.1rem;
+}
+
+.nav-active {
+    cursor: pointer;
+    color: var(--white);
+    background-color: var(--grey);
+    border-radius: 80px;
+    font-size: 1.1rem;
+}
+
+#mobile-nav {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--grey);
+
+}
+
+a {
+    list-style: none;
+    align-items: center;
+    justify-content: center;
+}
+
+#mobile-nav a {
+    text-decoration: none;
+    color: var(--white);
+    padding: 10px;
+}
+
+/* Home */
+
+.intro-container {
+    margin-left: 340px;
+    margin-right: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.main-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 80vh;
+}
+
+.photo {
+    padding: 50px;
+}
+
+.photo img {
+    height: 200px;
+    width: 200px;
+    border-radius: 50%;
+    box-shadow: 1px 1px 800px var(--grey);
+}
+
+.intro {
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+}
+
+.social-links {
+    display: flex;
+    align-items: center;
+    padding: 15px 0 0 0;
+    padding-left: 0;
+    cursor: pointer;
+}
+
+.social-links i {
+    font-size: 2rem;
+    margin: 10px;
+    border-radius: 25%;
+}
+
+.social-links i:hover {
+    color: var(--blue);
+    box-shadow: 1px 1px 20px 1px var(--grey);
+}
+.gmail i:hover {
+    box-shadow: none;
+    color: inherit;
+    cursor: default;
+}
+.social-links a {
+    text-decoration: none;
+    color: white;
+}
+
+.gmail {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.goto-section ul {
+    display: flex;
+    padding: 20px;
+}
+
+.goto-section ul li {
+    list-style: none ;
+    padding: 20px;
+}
+
+.goto-section a {
+    text-decoration: none;
+    color: var(--white);
+    background-color: var(--grey);
+    padding: 10px;
+    border-radius: 20px;
+}
+
+/* Projects */
+.contents {
+    display: flex;
+    margin: 0 16%  0 16%;
+    flex-wrap: wrap;
+    
+}
+
+.project-container {
+    display: flex;
+    flex-direction: column;
+    border-radius: 20px;
+    border: 1px solid var(--grey);
+    width: 470px;
+    padding: 10px;
+    margin: 10px
+}
+
+.project-heading {
+    padding-left: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.tech-used {
+    padding-left: 30px;
+}
+
+.sub-content {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.github-redirect i {
+    font-size: 3rem;
+    padding: 5px;
+    padding: 20px;
+    border-radius: 50%;
+}
+
+.github-redirect i:hover {
+    color: var(--blue);
+}       
+
+.github-redirect a {
+    text-decoration: none;
+    color: white;
+}
+
+/* skills */
+
+.panels {
+    width: 100%;
+}
+
+.goto {
+    position: fixed;
+}
+
+.goto ul {
+    list-style: none;
+}
+.goto li a{
+    text-decoration: underline;
+    color: var(--white);
+}
+
+.languages {
+    display: flex;
+    flex-direction: column;
+    margin: 20px 30% 0px 25%;
+    width: 60%;
+    
+}
+.skills-display {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.skill-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 20px;
+    width: 70px;
+    height: 70px;
+}
+
+.skill-logo i {
+    font-size: 2.5rem;
+}
+
+.skill-name {
+    font-size: 1.3rem;
+    padding: 10px;
+    text-align: center;
+}
+
+.frameworks-libs{
+    display: flex;
+    flex-direction: column;
+    margin: 20px 30% 0px 25%;
+}
+
+.framework-libs-display {
+    display: flex;
+    align-items: center;
+}
+
+.dev-tools {
+    display: flex;
+    align-items: center;
+}
+
+.dbms-display {
+    display: flex;
+    align-items: center;
+}
+
+@media screen and (max-width: 750px) {
+    .goto {
+        display: none;
+    }
+
+    .languages, .frameworks-libs {
+        margin-left: 10%;
+    }
+    .skills-display, .framework-libs-display, .dev-tools {
+        width: 350px;
+        flex-wrap: wrap;
+    }
+}
+
+@media screen and (max-width: 750px){
+    
+    .mobile-header {
+        display: flex;
+        margin-right: 10%;
+        cursor: pointer;
+    }
+
+    .header {
+        display: block;
+        margin-left: -60px;
+        align-items: center;
+        justify-content: center;
+    }
+    .navigation {
+        display: none;
+    }
+
+    .intro-container {
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .main-content {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .photo {
+        margin-left: 40px;
+        display: flex;
+    }
+    .photo .profile-img {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .intro {
+        width: 100%;
+        margin-left: 20%;
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .contents {
+        margin: 2%;
+    }
+}
